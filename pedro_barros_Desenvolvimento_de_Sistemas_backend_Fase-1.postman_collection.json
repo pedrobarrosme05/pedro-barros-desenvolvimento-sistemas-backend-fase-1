@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "pedro-barros-servico-gestao",
+		"name": "pedro_barros_Desenvolvimento_de_Sistemas_backend_Fase-1",
+		"description": "Coleção de testes para o ServicoGestao - Sistema de Controle de Planos de Operadora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Verifica se o serviço está funcionando"
+			}
+		},
+		{
+			"name": "Listar Clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/clientes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"clientes"
+					]
+				},
+				"description": "Lista todos os clientes cadastrados"
+			}
+		},
+		{
+			"name": "Listar Planos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/planos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"planos"
+					]
+				},
+				"description": "Lista todos os planos cadastrados"
+			}
+		},
+		{
+			"name": "Criar Assinatura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"codCliente\": 1,\n  \"codPlano\": 1,\n  \"custoFinal\": 39.90,\n  \"descricao\": \"Desconto promocional de 20% por fidelidade\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/gestao/assinaturas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"assinaturas"
+					]
+				},
+				"description": "Cria uma nova assinatura"
+			}
+		},
+		{
+			"name": "Atualizar Custo Plano",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"custoMensal\": 59.90\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/gestao/planos/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"planos",
+						"1"
+					]
+				},
+				"description": "Atualiza o custo mensal de um plano"
+			}
+		},
+		{
+			"name": "Listar Todas Assinaturas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/assinaturas/TODOS",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"assinaturas",
+						"TODOS"
+					]
+				},
+				"description": "Lista todas as assinaturas (ativas e canceladas)"
+			}
+		},
+		{
+			"name": "Listar Assinaturas Ativas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/assinaturas/ATIVOS",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"assinaturas",
+						"ATIVOS"
+					]
+				},
+				"description": "Lista apenas as assinaturas ativas"
+			}
+		},
+		{
+			"name": "Listar Assinaturas Canceladas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/assinaturas/CANCELADOS",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"assinaturas",
+						"CANCELADOS"
+					]
+				},
+				"description": "Lista apenas as assinaturas canceladas"
+			}
+		},
+		{
+			"name": "Listar Assinaturas por Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/assinaturascliente/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"assinaturascliente",
+						"1"
+					]
+				},
+				"description": "Lista as assinaturas de um cliente específico"
+			}
+		},
+		{
+			"name": "Listar Assinaturas por Plano",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gestao/assinaturasplano/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gestao",
+						"assinaturasplano",
+						"1"
+					]
+				},
+				"description": "Lista as assinaturas de um plano específico"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
